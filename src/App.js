@@ -156,19 +156,19 @@ const styles = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    height: "100vh", 
+    height: "100vh", // Make the container take the full height of the viewport
   },
 
   loadingSpinner: {
+    border: "6px solid #3498db",
+    borderTop: "6px solid transparent",
+    borderRadius: "50%",
     width: "40px",
     height: "40px",
-    borderRadius: "50%",
-    border: "5px solid transparent",
-    borderTop: "5px solid #3498db",
     animation: "spin 1s infinite linear",
-
   },
 
+  // Animation keyframes for the loading spinner
   "@keyframes spin": {
     from: { transform: "rotate(0deg)" },
     to: { transform: "rotate(360deg)" },
