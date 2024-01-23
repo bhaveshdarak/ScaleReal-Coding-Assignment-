@@ -8,7 +8,7 @@ const App = () => {
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [sortBy, setSortBy] = useState("episode");
-  // const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -17,7 +17,7 @@ const App = () => {
 
         if (cachedData) {
           setMovies(JSON.parse(cachedData));
-          // setLoading(false);
+          setLoading(false);
         } else {
           const response = await axios.get(
             "https://swapi.dev/api/films/?format=json"
@@ -29,11 +29,11 @@ const App = () => {
             JSON.stringify(response.data.results)
           );
 
-          // setLoading(false);
+          setLoading(false);
         }
       } catch (error) {
         console.error("Error fetching movies:", error);
-        // setLoading(false);
+        setLoading(false);
       }
     };
 
