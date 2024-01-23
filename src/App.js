@@ -92,9 +92,7 @@ const App = () => {
       </div>
 
       {loading ? (
-        <div style={styles.loadingContainer}>
-          <div style={styles.loadingSpinner}></div>
-        </div>
+        <p>Loading...</p>
       ) : (
         <div style={styles.movieDetailsContainer}>
           <MovieList movies={filteredMovies} onSelectMovie={onSelectMovie} />
@@ -152,27 +150,7 @@ const styles = {
     display: "flex",
     justifyContent: "space-between",
   },
-  loadingContainer: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    height: "100vh", // Make the container take the full height of the viewport
-  },
-
-  loadingSpinner: {
-    border: "6px solid #3498db",
-    borderTop: "6px solid transparent",
-    borderRadius: "50%",
-    width: "40px",
-    height: "40px",
-    animation: "spin 1s infinite linear",
-  },
-
-  // Animation keyframes for the loading spinner
-  "@keyframes spin": {
-    from: { transform: "rotate(0deg)" },
-    to: { transform: "rotate(360deg)" },
-  },
+  
 };
 
 export default App;
