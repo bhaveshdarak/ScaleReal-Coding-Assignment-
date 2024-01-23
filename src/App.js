@@ -91,15 +91,19 @@ const App = () => {
         </div>
       </div>
 
-
-      <div style={styles.movieDetailsContainer}>
-        <MovieList movies={filteredMovies} onSelectMovie={onSelectMovie} />
-        <MovieDetails selectedMovie={selectedMovie} />
-      </div>
+      {loading ? (
+        <div style={styles.loadingContainer}>
+          <div style={styles.loadingSpinner}></div>
+        </div>
+      ) : (
+        <div style={styles.movieDetailsContainer}>
+          <MovieList movies={filteredMovies} onSelectMovie={onSelectMovie} />
+          <MovieDetails selectedMovie={selectedMovie} />
+        </div>
+      )}
     </div>
   );
 };
-
 
 const styles = {
   appContainer: {
@@ -112,8 +116,8 @@ const styles = {
     marginBottom: "20px",
     display: "flex",
     alignItems: "center",
-    background: "#f0f0f0", 
-    padding: "10px", 
+    background: "#f0f0f0",
+    padding: "10px",
     borderRadius: "5px",
   },
   sortLabel: {
@@ -127,18 +131,18 @@ const styles = {
   },
   searchInputContainer: {
     position: "relative",
-    display: "flex", 
-    alignItems: "center", 
-    flex: "1", 
+    display: "flex",
+    alignItems: "center",
+    flex: "1",
   },
   searchIcon: {
     position: "absolute",
-    left: "10px", 
+    left: "10px",
     cursor: "pointer",
   },
   searchInput: {
     padding: "10px",
-    paddingLeft: "30px", 
+    paddingLeft: "30px",
     width: "100%",
     fontSize: "16px",
     borderRadius: "5px",
@@ -147,6 +151,27 @@ const styles = {
   movieDetailsContainer: {
     display: "flex",
     justifyContent: "space-between",
+  },
+  loadingContainer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100vh", 
+  },
+
+  loadingSpinner: {
+    width: "40px",
+    height: "40px",
+    borderRadius: "50%",
+    border: "5px solid transparent",
+    borderTop: "5px solid #3498db",
+    animation: "spin 1s infinite linear",
+
+  },
+
+  "@keyframes spin": {
+    from: { transform: "rotate(0deg)" },
+    to: { transform: "rotate(360deg)" },
   },
 };
 
