@@ -2,7 +2,7 @@ import React from 'react';
 
 const MovieList = ({ movies, onSelectMovie }) => {
     const formatReleaseDate = (dateString) => {
-      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
       const formattedDate = new Date(dateString).toLocaleDateString(undefined, options);
       return formattedDate;
     };
@@ -62,6 +62,7 @@ const styles = {
       marginLeft: '10px',
       flex: '0.2',
     },
+    
   };
 
 export default MovieList;
